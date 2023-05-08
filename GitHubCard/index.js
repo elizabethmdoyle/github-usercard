@@ -6,7 +6,13 @@ import axios from 'axios';
     https://api.github.com/users/<your name>
 */
 axios.get('https://api.github.com/users/elizabethmdoyle')
-      .then(res => console.log(res.data))
+      .then(res => {
+        console.log(res.data)
+      const githubCard = githubUserCardMaker(res.data)
+      cards.appendChild(githubCard)
+      
+      }
+      )
       .catch(err => console.log(err))
       .finally(() => console.log('done'))
 
@@ -23,6 +29,8 @@ axios.get('https://api.github.com/users/elizabethmdoyle')
     and append the returned markup to the DOM as a child of .cards
 */
 
+const cards = document.querySelector('.cards');
+
 /*
   STEP 5: Now that you have your own card getting added to the DOM, either
     follow this link in your browser https://api.github.com/users/<Your github name>/followers,
@@ -33,6 +41,9 @@ axios.get('https://api.github.com/users/elizabethmdoyle')
     Using that array, iterate over it, requesting data for each user, creating a new card for each
     user, and adding that card to the DOM.
 */
+
+
+
 
 const followersArray = [];
 
