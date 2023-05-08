@@ -56,6 +56,35 @@ const followersArray = [];
     </div>
 */
 
+function githubUserCardMaker(object) {
+
+  const githubCard = document.createElement('div');
+  const githubCardImage = document.createElement('img');
+  const cardInfoWrapper = document.createElement('div');
+  const githubUserName = document.createElement('h3');
+  const githubUserUsername  = document.createElement('p');
+  const githubLocation = document.createElement('p');
+  const githubProfile  = document.createElement('p');
+  const githubPageLink = document.createElement('a');
+  const githubFollowerCount = document.createElement('p');
+  const githubFollowingCount = document.createElement('p');
+  const githubBio = document.createElement('p');
+
+
+
+  githubCard.classList.add('card');
+  cardInfoWrapper.classList.add('card-info');
+  githubUserName.classList.add('name');
+  githubUserUsername.classList.add('username');
+  
+
+
+
+
+
+    return githubCard
+}
+
 /*
   List of LS Instructors Github username's:
     tetondan
