@@ -10,6 +10,8 @@ axios.get('https://api.github.com/users/elizabethmdoyle')
         console.log(res.data)
       const githubCard = githubUserCardMaker(res.data)
       cards.appendChild(githubCard)
+
+      //document.queryselector('.cards').appendChild(gitHubCard(res.data));
       
       }
       )
@@ -45,7 +47,34 @@ const cards = document.querySelector('.cards');
 
 
 
-const followersArray = [];
+const followersArray = [tetondan,
+                        dustinmyers,
+                        justsml,
+                        luishrd,
+                        bigknell
+                      ];
+
+// for(let i = 0; i < followersArray.length; i++) {
+//   getGitCard(followersArray[i])
+// }   
+
+followersArray.forEach(getGitCard(follower))
+
+function getGitCard(username) {
+
+  axios.get(`https://api.github.com/users/${username}`)
+      .then(res => {
+        console.log(res.data)
+      const githubCard = githubUserCardMaker(res.data)
+      cards.appendChild(githubCard)
+
+      //document.queryselector('.cards').appendChild(gitHubCard(res.data));
+      
+      }
+      )
+      .catch(err => console.log(err))
+
+}      
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
@@ -103,7 +132,7 @@ function githubUserCardMaker(obj) {
   githubUserName.textContent = obj.name;
   githubUserUsername.textContent = obj.login;
   githubLocation.textContent = `Location: ${obj.location}`;
-  githubProfile.textContent = `Profile: `;
+  githubProfile.textContent = `Profile: ${obj.html_url}`;
   githubPageLink.href = obj.html_url;
   githubPageLink.textContent = obj.html_url;
   githubFollowerCount.textContent = `Followers: ${obj.followers}`;
