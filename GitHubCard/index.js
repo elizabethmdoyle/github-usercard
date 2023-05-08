@@ -56,7 +56,7 @@ const followersArray = [];
     </div>
 */
 
-function githubUserCardMaker(object) {
+function githubUserCardMaker(obj) {
 
   const githubCard = document.createElement('div');
   const githubCardImage = document.createElement('img');
@@ -77,8 +77,27 @@ function githubUserCardMaker(object) {
   githubUserName.classList.add('name');
   githubUserUsername.classList.add('username');
   
+  githubCard.appendChild(githubCardImage);
+  githubCard.appendChild(cardInfoWrapper);
+  cardInfoWrapper.appendChild(githubUserName);
+  cardInfoWrapper.appendChild(githubUserUsername);
+  cardInfoWrapper.appendChild(githubLocation);
+  cardInfoWrapper.appendChild(githubProfile);
+  githubProfile.appendChild(githubPageLink)
+  cardInfoWrapper.appendChild(githubFollowerCount);
+  cardInfoWrapper.appendChild(githubFollowingCount);
+  cardInfoWrapper.appendChild(githubBio);
 
-
+  githubCardImage.src = obj.avatar_url;
+  githubUserName.textContent = obj.name;
+  githubUserUsername.textContent = obj.login;
+  githubLocation.textContent = `Location: ${obj.location}`;
+  githubProfile.textContent = `Profile: `;
+  githubPageLink.href = obj.html_url;
+  githubPageLink.textContent = obj.html_url;
+  githubFollowerCount.textContent = `Followers: ${obj.followers}`;
+  githubFollowingCount.textContent = `Following: ${obj.following}`;
+  githubBio.textContent = `Bio: ${obj.bio}`;
 
 
 
