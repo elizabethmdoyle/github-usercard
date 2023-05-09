@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+
+const cards = document.querySelector('.cards');
 /*
   STEP 1: using axios, send a GET request to the following URL
     (replacing the placeholder with your Github name):
@@ -31,8 +33,6 @@ axios.get('https://api.github.com/users/elizabethmdoyle')
     and append the returned markup to the DOM as a child of .cards
 */
 
-const cards = document.querySelector('.cards');
-
 /*
   STEP 5: Now that you have your own card getting added to the DOM, either
     follow this link in your browser https://api.github.com/users/<Your github name>/followers,
@@ -52,13 +52,13 @@ const followersArray = [tetondan,
                         justsml,
                         luishrd,
                         bigknell
-                      ];
+                      ];  
 
 // for(let i = 0; i < followersArray.length; i++) {
 //   getGitCard(followersArray[i])
 // }   
 
-followersArray.forEach(getGitCard(follower))
+followersArray.forEach(getGitCard(followersArray))
 
 function getGitCard(username) {
 
