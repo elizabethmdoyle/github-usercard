@@ -10,10 +10,10 @@ const cards = document.querySelector('.cards');
 axios.get('https://api.github.com/users/elizabethmdoyle')
       .then(res => {
         console.log(res.data)
-      const githubCard = githubUserCardMaker(res.data)
+      const githubCard = githubUserCard(res.data)
       cards.appendChild(githubCard)
 
-      //document.queryselector('.cards').appendChild(gitHubCard(res.data));
+      // document.querySelector('.cards').appendChild(githubUserCard(res.data));
       
       }
       )
@@ -47,32 +47,25 @@ axios.get('https://api.github.com/users/elizabethmdoyle')
 
 
 
-const followersArray = [tetondan,
-                        dustinmyers,
-                        justsml,
-                        luishrd,
-                        bigknell
-                      ];  
+const followersArray = ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell'];  
 
-// for(let i = 0; i < followersArray.length; i++) {
-//   getGitCard(followersArray[i])
-// }   
+for(let i = 0; i < followersArray.length; i++) {
+  getGitCard(followersArray[i])
+}   
 
-followersArray.forEach(getGitCard(followersArray))
+// followersArray.forEach(getGitCard(followersArray))
 
 function getGitCard(username) {
-
   axios.get(`https://api.github.com/users/${username}`)
-      .then(res => {
-        console.log(res.data)
-      const githubCard = githubUserCardMaker(res.data)
-      cards.appendChild(githubCard)
+  .then(res => {
+    console.log(res.data)
 
-      //document.queryselector('.cards').appendChild(gitHubCard(res.data));
-      
-      }
-      )
-      .catch(err => console.log(err))
+      document.querySelector('.cards').appendChild(githubUserCard(res.data));
+  
+  }
+  )
+  .catch(err => console.log(err))
+  .finally(() => console.log('done'))
 
 }      
 
@@ -96,7 +89,7 @@ function getGitCard(username) {
     </div>
 */
 
-function githubUserCardMaker(obj) {
+function githubUserCard(obj) {
 
   const githubCard = document.createElement('div');
   const githubCardImage = document.createElement('img');
