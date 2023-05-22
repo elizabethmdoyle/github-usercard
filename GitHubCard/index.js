@@ -45,8 +45,6 @@ axios.get('https://api.github.com/users/elizabethmdoyle')
 */
 
 
-
-
 const followersArray = ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell'];  
 
 for(let i = 0; i < followersArray.length; i++) {
